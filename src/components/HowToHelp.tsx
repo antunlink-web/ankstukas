@@ -2,38 +2,41 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, CreditCard, Gift, Users, Cloud, Sparkles } from "lucide-react";
 import AngelDecoration from "@/components/AngelDecoration";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowToHelp = () => {
+  const { t } = useLanguage();
+  
   const ways = [
     {
       icon: Heart,
-      title: "Monthly Donation",
-      description: "Provide consistent support with a recurring donation that helps us plan for the future.",
-      action: "Start Monthly Giving",
+      title: t("help.monthly.title"),
+      description: t("help.monthly.desc"),
+      action: t("help.monthly.action"),
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: CreditCard,
-      title: "One-Time Gift",
-      description: "Make an immediate impact with a one-time contribution of any amount.",
-      action: "Donate Now",
+      title: t("help.onetime.title"),
+      description: t("help.onetime.desc"),
+      action: t("help.onetime.action"),
       color: "bg-secondary/20",
       iconColor: "text-secondary",
     },
     {
       icon: Gift,
-      title: "Donate Equipment",
-      description: "Help us provide essential medical equipment and supplies for NICU care.",
-      action: "See Wish List",
+      title: t("help.equipment.title"),
+      description: t("help.equipment.desc"),
+      action: t("help.equipment.action"),
       color: "bg-accent/20",
       iconColor: "text-accent",
     },
     {
       icon: Users,
-      title: "Volunteer",
-      description: "Join our community of volunteers supporting families through difficult times.",
-      action: "Get Involved",
+      title: t("help.volunteer.title"),
+      description: t("help.volunteer.desc"),
+      action: t("help.volunteer.action"),
       color: "bg-primary-light/20",
       iconColor: "text-primary-light",
     },
@@ -56,10 +59,10 @@ const HowToHelp = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-            How You Can Help
+            {t("help.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Every contribution, big or small, brings hope to families and helps premature babies thrive.
+            {t("help.subtitle")}
           </p>
         </div>
 
@@ -89,11 +92,10 @@ const HowToHelp = () => {
         <div className="mt-16 text-center animate-fade-in">
           <div className="inline-block bg-secondary-light/30 rounded-2xl p-8 max-w-2xl">
             <p className="text-lg text-foreground/80 mb-4">
-              <strong className="text-primary font-heading">Corporate Partnerships:</strong> We work with 
-              businesses to create meaningful partnerships that support families in need.
+              <strong className="text-primary font-heading">{t("help.corporate.text")}</strong>
             </p>
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 transition-smooth">
-              Partner With Us
+              {t("help.corporate.action")}
             </Button>
           </div>
         </div>

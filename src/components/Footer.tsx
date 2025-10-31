@@ -1,6 +1,9 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer id="contact" className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -11,11 +14,10 @@ const Footer = () => {
               <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
                 <span className="text-2xl">💙</span>
               </div>
-              <span className="text-2xl font-heading font-bold">Little Fighters</span>
+              <span className="text-2xl font-heading font-bold">{t("nav.siteName")}</span>
             </div>
             <p className="text-primary-foreground/80 mb-4 leading-relaxed">
-              Supporting premature babies and their families with compassionate care, 
-              resources, and hope. Together, we make miracles happen every day.
+              {t("footer.about")}
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-secondary transition-smooth flex items-center justify-center">
@@ -29,18 +31,18 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-heading font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-heading font-bold mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-primary-foreground/80 hover:text-secondary transition-smooth">About Us</a></li>
-              <li><a href="#help" className="text-primary-foreground/80 hover:text-secondary transition-smooth">How to Help</a></li>
-              <li><a href="#stories" className="text-primary-foreground/80 hover:text-secondary transition-smooth">Stories</a></li>
+              <li><a href="#about" className="text-primary-foreground/80 hover:text-secondary transition-smooth">{t("nav.about")}</a></li>
+              <li><a href="#help" className="text-primary-foreground/80 hover:text-secondary transition-smooth">{t("nav.help")}</a></li>
+              <li><a href="#stories" className="text-primary-foreground/80 hover:text-secondary transition-smooth">{t("nav.stories")}</a></li>
               <li><a href="#" className="text-primary-foreground/80 hover:text-secondary transition-smooth">Resources</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-heading font-bold mb-4">Contact</h3>
+            <h3 className="text-lg font-heading font-bold mb-4">{t("footer.contact")}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-primary-foreground/80">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />

@@ -1,30 +1,33 @@
 import { Users, Heart, HandHeart, TrendingUp, Cloud } from "lucide-react";
 import CloudDecoration from "@/components/CloudDecoration";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Stats = () => {
+  const { t } = useLanguage();
+  
   const stats = [
     {
       icon: Users,
-      number: "1 in 10",
-      label: "Babies are born premature worldwide",
+      number: t("stats.stat1.number"),
+      label: t("stats.stat1.label"),
       color: "text-primary",
     },
     {
       icon: Heart,
-      number: "850+",
-      label: "Families supported this year",
+      number: t("stats.stat2.number"),
+      label: t("stats.stat2.label"),
       color: "text-secondary",
     },
     {
       icon: HandHeart,
-      number: "€250,000",
-      label: "In aid provided",
+      number: t("stats.stat3.number"),
+      label: t("stats.stat3.label"),
       color: "text-accent",
     },
     {
       icon: TrendingUp,
-      number: "95%",
-      label: "Success rate with proper support",
+      number: t("stats.stat4.number"),
+      label: t("stats.stat4.label"),
       color: "text-primary-light",
     },
   ];
@@ -45,10 +48,10 @@ const Stats = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-            Making a Real Difference
+            {t("stats.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Together, we're changing lives and giving every premature baby the best chance to thrive.
+            {t("stats.subtitle")}
           </p>
         </div>
 
@@ -73,12 +76,10 @@ const Stats = () => {
         <div className="mt-16 max-w-3xl mx-auto text-center animate-fade-in">
           <div className="bg-card rounded-2xl p-8 shadow-card border-2 border-secondary-light">
             <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-              Our Strength is Their Courage
+              {t("stats.card.title")}
             </h3>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              Every premature baby faces unique challenges. With dedicated medical teams, 
-              compassionate support, and community generosity, we ensure these tiny fighters 
-              have everything they need to grow strong and healthy.
+              {t("stats.card.text")}
             </p>
           </div>
         </div>

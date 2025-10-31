@@ -2,8 +2,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Cloud, Star } from "lucide-react";
 import CloudDecoration from "@/components/CloudDecoration";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Stories = () => {
+  const { t } = useLanguage();
   const stories = [
     {
       date: "December 15, 2024",
@@ -46,10 +48,10 @@ const Stories = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-            Stories of Hope
+            {t("stories.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Read about the families we've helped and the community making a difference every day.
+            {t("stories.subtitle")}
           </p>
         </div>
 
@@ -84,7 +86,7 @@ const Stories = () => {
             href="#stories" 
             className="text-primary font-medium hover:text-primary-light transition-smooth inline-flex items-center gap-2"
           >
-            View All Stories
+            {t("stories.viewAll")}
             <span>→</span>
           </a>
         </div>

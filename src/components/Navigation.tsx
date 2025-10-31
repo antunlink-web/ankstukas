@@ -1,17 +1,23 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "How to Help", href: "#help" },
-    { name: "Stories", href: "#stories" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.home"), href: "#home" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.help"), href: "#help" },
+    { name: t("nav.stories"), href: "#stories" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "lt" : "en");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-soft">
@@ -21,7 +27,7 @@ const Navigation = () => {
             <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
               <span className="text-2xl">💙</span>
             </div>
-            <span className="text-xl font-heading font-bold text-primary">Little Fighters</span>
+            <span className="text-xl font-heading font-bold text-primary">{t("nav.siteName")}</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -35,8 +41,16 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium"
+              aria-label="Toggle language"
+            >
+              <Languages size={20} />
+              <span className="uppercase">{language}</span>
+            </button>
             <Button className="bg-primary hover:bg-primary-light transition-smooth">
-              Donate
+              {t("nav.donate")}
             </Button>
           </div>
 
@@ -63,8 +77,18 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsOpen(false);
+              }}
+              className="flex items-center gap-2 py-3 text-foreground hover:text-primary transition-smooth font-medium"
+            >
+              <Languages size={20} />
+              <span>{language === "en" ? "Lietuvių kalba" : "English"}</span>
+            </button>
             <Button className="w-full mt-4 bg-primary hover:bg-primary-light transition-smooth">
-              Donate
+              {t("nav.donate")}
             </Button>
           </div>
         )}
@@ -74,3 +98,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
