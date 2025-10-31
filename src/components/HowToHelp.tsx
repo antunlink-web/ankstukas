@@ -1,0 +1,92 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, CreditCard, Gift, Users } from "lucide-react";
+
+const HowToHelp = () => {
+  const ways = [
+    {
+      icon: Heart,
+      title: "Monthly Donation",
+      description: "Provide consistent support with a recurring donation that helps us plan for the future.",
+      action: "Start Monthly Giving",
+      color: "bg-primary/10",
+      iconColor: "text-primary",
+    },
+    {
+      icon: CreditCard,
+      title: "One-Time Gift",
+      description: "Make an immediate impact with a one-time contribution of any amount.",
+      action: "Donate Now",
+      color: "bg-secondary/20",
+      iconColor: "text-secondary",
+    },
+    {
+      icon: Gift,
+      title: "Donate Equipment",
+      description: "Help us provide essential medical equipment and supplies for NICU care.",
+      action: "See Wish List",
+      color: "bg-accent/20",
+      iconColor: "text-accent",
+    },
+    {
+      icon: Users,
+      title: "Volunteer",
+      description: "Join our community of volunteers supporting families through difficult times.",
+      action: "Get Involved",
+      color: "bg-primary-light/20",
+      iconColor: "text-primary-light",
+    },
+  ];
+
+  return (
+    <section id="help" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
+            How You Can Help
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Every contribution, big or small, brings hope to families and helps premature babies thrive.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {ways.map((way, index) => (
+            <Card 
+              key={index} 
+              className="border-2 hover-lift animate-scale-in shadow-soft"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <CardHeader>
+                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${way.color} ${way.iconColor} mb-4`}>
+                  <way.icon size={28} />
+                </div>
+                <CardTitle className="text-2xl font-heading">{way.title}</CardTitle>
+                <CardDescription className="text-base">{way.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full bg-primary hover:bg-primary-light transition-smooth">
+                  {way.action}
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center animate-fade-in">
+          <div className="inline-block bg-secondary-light/30 rounded-2xl p-8 max-w-2xl">
+            <p className="text-lg text-foreground/80 mb-4">
+              <strong className="text-primary font-heading">Corporate Partnerships:</strong> We work with 
+              businesses to create meaningful partnerships that support families in need.
+            </p>
+            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 transition-smooth">
+              Partner With Us
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HowToHelp;
