@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
+import { Heart, Cloud, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-baby.jpg";
+import CloudDecoration from "@/components/CloudDecoration";
+import AngelDecoration from "@/components/AngelDecoration";
 
 const Hero = () => {
   return (
@@ -15,9 +17,30 @@ const Hero = () => {
         />
       </div>
 
+      {/* Sky gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary-light/20 via-transparent to-transparent" />
+
+      {/* Floating cloud decorations */}
+      <CloudDecoration position="top" />
+      
+      {/* Angel decorations */}
+      <AngelDecoration className="top-24 right-12 opacity-10" />
+      <AngelDecoration className="bottom-32 left-16 opacity-15" />
+
       {/* Decorative cloud shapes */}
       <div className="absolute top-20 right-10 w-32 h-32 bg-secondary-light rounded-full blur-3xl opacity-30 animate-float" />
       <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent rounded-full blur-3xl opacity-20 animate-float" style={{ animationDelay: "1s" }} />
+      
+      {/* Sparkle elements */}
+      <div className="absolute top-40 left-[15%] text-secondary opacity-30 animate-float">
+        <Sparkles size={24} />
+      </div>
+      <div className="absolute top-60 right-[25%] text-accent opacity-25 animate-float" style={{ animationDelay: "1.5s" }}>
+        <Sparkles size={20} />
+      </div>
+      <div className="absolute bottom-40 right-[15%] text-secondary-light opacity-30 animate-float" style={{ animationDelay: "2s" }}>
+        <Cloud size={32} />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center animate-fade-in-slow">

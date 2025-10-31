@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, CreditCard, Gift, Users } from "lucide-react";
+import { Heart, CreditCard, Gift, Users, Cloud, Sparkles } from "lucide-react";
+import AngelDecoration from "@/components/AngelDecoration";
 
 const HowToHelp = () => {
   const ways = [
@@ -39,8 +40,20 @@ const HowToHelp = () => {
   ];
 
   return (
-    <section id="help" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="help" className="relative py-20 bg-background overflow-hidden">
+      {/* Celestial decorations */}
+      <AngelDecoration className="top-20 right-[8%]" />
+      <div className="absolute top-40 left-[12%] text-secondary opacity-20 animate-float">
+        <Sparkles size={28} />
+      </div>
+      <div className="absolute bottom-32 right-[15%] text-accent opacity-25 animate-float" style={{ animationDelay: "1s" }}>
+        <Cloud size={44} />
+      </div>
+      <div className="absolute top-60 right-[20%] text-secondary-light opacity-15 animate-float" style={{ animationDelay: "2s" }}>
+        <Sparkles size={24} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
             How You Can Help

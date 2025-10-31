@@ -1,4 +1,5 @@
-import { Users, Heart, HandHeart, TrendingUp } from "lucide-react";
+import { Users, Heart, HandHeart, TrendingUp, Cloud } from "lucide-react";
+import CloudDecoration from "@/components/CloudDecoration";
 
 const Stats = () => {
   const stats = [
@@ -29,8 +30,19 @@ const Stats = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-soft">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-20 bg-gradient-soft overflow-hidden">
+      {/* Floating clouds in background */}
+      <div className="absolute top-10 left-[5%] opacity-20">
+        <Cloud size={48} className="text-secondary animate-float" />
+      </div>
+      <div className="absolute top-32 right-[10%] opacity-15">
+        <Cloud size={40} className="text-secondary-light animate-float" style={{ animationDelay: "1s" }} />
+      </div>
+      <div className="absolute bottom-20 left-[15%] opacity-20">
+        <Cloud size={56} className="text-secondary animate-float" style={{ animationDelay: "2s" }} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
             Making a Real Difference

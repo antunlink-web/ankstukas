@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar } from "lucide-react";
+import { Calendar, Cloud, Star } from "lucide-react";
+import CloudDecoration from "@/components/CloudDecoration";
 
 const Stories = () => {
   const stories = [
@@ -28,8 +29,21 @@ const Stories = () => {
   ];
 
   return (
-    <section id="stories" className="py-20 bg-gradient-soft">
-      <div className="container mx-auto px-4">
+    <section id="stories" className="relative py-20 bg-gradient-soft overflow-hidden">
+      {/* Sky decorations */}
+      <CloudDecoration position="top" className="opacity-50" />
+      
+      <div className="absolute top-32 left-[8%] text-accent opacity-20 animate-float">
+        <Star size={32} />
+      </div>
+      <div className="absolute bottom-40 right-[12%] text-secondary opacity-25 animate-float" style={{ animationDelay: "1s" }}>
+        <Cloud size={40} />
+      </div>
+      <div className="absolute top-48 right-[18%] text-secondary-light opacity-15 animate-float" style={{ animationDelay: "1.5s" }}>
+        <Star size={24} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
             Stories of Hope
