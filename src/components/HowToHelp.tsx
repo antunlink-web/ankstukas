@@ -122,7 +122,11 @@ const HowToHelp = () => {
                   asChild
                   className="w-full bg-secondary hover:bg-secondary/90 text-primary font-semibold transition-smooth rounded-2xl shadow-soft"
                 >
-                  <a href={index === 0 ? "https://geravalia.lt/stripe.html" : "#"} target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href={index === 0 ? "https://geravalia.lt/stripe.html" : "https://donate.stripe.com/dR6022eZJ29hdWMdQQ?locale=lt"} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     {way.action}
                   </a>
                 </Button>
