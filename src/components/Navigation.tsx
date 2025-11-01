@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-              <span className="text-2xl">💙</span>
+            <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center overflow-hidden">
+              <img src={logo} alt="Ankstukas logo" className="w-8 h-8 object-contain" />
             </div>
             <span className="text-xl font-heading font-bold text-primary">{t("nav.siteName")}</span>
           </div>
