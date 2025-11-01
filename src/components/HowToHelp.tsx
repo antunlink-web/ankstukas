@@ -1,11 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, CreditCard, Gift, Users, Cloud, Sparkles } from "lucide-react";
-import AngelDecoration from "@/components/AngelDecoration";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Heart, CreditCard, Cloud } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const HowToHelp = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   
   const ways = [
     {
@@ -24,23 +35,53 @@ const HowToHelp = () => {
       color: "bg-secondary/20",
       iconColor: "text-secondary",
     },
-    {
-      icon: Gift,
-      title: t("help.equipment.title"),
-      description: t("help.equipment.desc"),
-      action: t("help.equipment.action"),
-      color: "bg-accent/20",
-      iconColor: "text-accent",
-    },
-    {
-      icon: Users,
-      title: t("help.volunteer.title"),
-      description: t("help.volunteer.desc"),
-      action: t("help.volunteer.action"),
-      color: "bg-primary-light/20",
-      iconColor: "text-primary-light",
-    },
   ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: t("contact.error"),
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: t("contact.success"),
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      toast({
+        title: t("contact.error"),
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="help" className="relative py-20 bg-gradient-soft overflow-hidden">
@@ -94,6 +135,73 @@ const HowToHelp = () => {
               {t("help.corporate.action")}
             </Button>
           </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="mt-20 max-w-2xl mx-auto animate-fade-in">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-3">
+              {t("contact.title")}
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              {t("contact.subtitle")}
+            </p>
+          </div>
+          
+          <Card className="border-0 shadow-card rounded-3xl bg-card">
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name" className="text-base font-medium text-foreground">
+                    {t("contact.name")}
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="mt-2 rounded-xl border-primary/20 focus:border-primary"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="email" className="text-base font-medium text-foreground">
+                    {t("contact.email")}
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="mt-2 rounded-xl border-primary/20 focus:border-primary"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="message" className="text-base font-medium text-foreground">
+                    {t("contact.message")}
+                  </Label>
+                  <Textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="mt-2 rounded-xl border-primary/20 focus:border-primary min-h-[120px]"
+                    required
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-secondary hover:bg-secondary/90 text-primary font-semibold transition-smooth rounded-2xl shadow-soft"
+                >
+                  {isSubmitting ? t("contact.sending") : t("contact.submit")}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

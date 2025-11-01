@@ -56,6 +56,17 @@ const translations = {
     "help.corporate.text": "We work with businesses to create meaningful partnerships that support families in need.",
     "help.corporate.action": "Partner With Us",
     
+    // Contact Form
+    "contact.title": "Get in Touch",
+    "contact.subtitle": "Have questions or want to learn more? We'd love to hear from you.",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.message": "Message",
+    "contact.submit": "Send Message",
+    "contact.sending": "Sending...",
+    "contact.success": "Thank you! We'll get back to you soon.",
+    "contact.error": "Failed to send message. Please try again.",
+    
     // Stories
     "stories.title": "Stories of Hope",
     "stories.subtitle": "Read about the families we've helped and the community making a difference every day.",
@@ -115,6 +126,17 @@ const translations = {
     "help.volunteer.action": "Įsitraukti",
     "help.corporate.text": "Dirbame su verslu kurdami prasmingą partnerystę, kuri palaiko šeimas, kurioms reikia pagalbos.",
     "help.corporate.action": "Tapti Partneriu",
+    
+    // Contact Form
+    "contact.title": "Susisiekite",
+    "contact.subtitle": "Turite klausimų ar norite sužinoti daugiau? Mums būtų malonu išgirsti iš jūsų.",
+    "contact.name": "Vardas",
+    "contact.email": "El. paštas",
+    "contact.message": "Žinutė",
+    "contact.submit": "Siųsti Žinutę",
+    "contact.sending": "Siunčiama...",
+    "contact.success": "Ačiū! Netrukus su jumis susisieksime.",
+    "contact.error": "Nepavyko išsiųsti žinutės. Bandykite dar kartą.",
     
     // Stories
     "stories.title": "Vilties Istorijos",
