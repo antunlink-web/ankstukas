@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -11,8 +12,8 @@ const Footer = () => {
           {/* About */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center">
-                <span className="text-2xl">💙</span>
+              <div className="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center overflow-hidden">
+                <img src={logo} alt="Ankstukas logo" className="w-9 h-9 object-contain" />
               </div>
               <span className="text-2xl font-heading font-bold text-secondary">{t("nav.siteName")}</span>
             </div>
