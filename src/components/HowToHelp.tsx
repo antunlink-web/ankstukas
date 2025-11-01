@@ -118,8 +118,13 @@ const HowToHelp = () => {
                 <CardDescription className="text-base text-muted-foreground">{way.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full bg-secondary hover:bg-secondary/90 text-primary font-semibold transition-smooth rounded-2xl shadow-soft">
-                  {way.action}
+                <Button 
+                  asChild
+                  className="w-full bg-secondary hover:bg-secondary/90 text-primary font-semibold transition-smooth rounded-2xl shadow-soft"
+                >
+                  <a href={index === 0 ? "https://geravalia.lt/stripe.html" : "#"} target="_blank" rel="noopener noreferrer">
+                    {way.action}
+                  </a>
                 </Button>
               </CardContent>
             </Card>
