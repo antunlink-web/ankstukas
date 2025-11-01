@@ -10,39 +10,36 @@ const Stats = () => {
       icon: Users,
       number: t("stats.stat1.number"),
       label: t("stats.stat1.label"),
-      color: "text-primary",
+      iconColor: "bg-secondary/20 text-secondary",
     },
     {
       icon: Heart,
       number: t("stats.stat2.number"),
       label: t("stats.stat2.label"),
-      color: "text-secondary",
+      iconColor: "bg-primary/10 text-primary",
     },
     {
       icon: HandHeart,
       number: t("stats.stat3.number"),
       label: t("stats.stat3.label"),
-      color: "text-accent",
+      iconColor: "bg-accent/30 text-accent",
     },
     {
       icon: TrendingUp,
       number: t("stats.stat4.number"),
       label: t("stats.stat4.label"),
-      color: "text-primary-light",
+      iconColor: "bg-secondary/20 text-secondary",
     },
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-gradient-soft overflow-hidden">
-      {/* Floating clouds in background */}
-      <div className="absolute top-10 left-[5%] opacity-20">
-        <Cloud size={48} className="text-secondary animate-float" />
+    <section id="about" className="relative py-20 bg-background overflow-hidden">
+      {/* Floating clouds */}
+      <div className="absolute top-20 right-[10%] text-secondary/10 animate-float">
+        <Cloud size={70} />
       </div>
-      <div className="absolute top-32 right-[10%] opacity-15">
-        <Cloud size={40} className="text-secondary-light animate-float" style={{ animationDelay: "1s" }} />
-      </div>
-      <div className="absolute bottom-20 left-[15%] opacity-20">
-        <Cloud size={56} className="text-secondary animate-float" style={{ animationDelay: "2s" }} />
+      <div className="absolute bottom-32 left-[8%] text-secondary/10 animate-float" style={{ animationDelay: "1.5s" }}>
+        <Cloud size={60} />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -55,33 +52,33 @@ const Stats = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl p-8 text-center shadow-card hover-lift animate-scale-in"
+              className="text-center p-6 rounded-3xl bg-card hover-lift animate-scale-in shadow-card border border-border/50"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4 ${stat.color}`}>
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${stat.iconColor} mb-4`}>
                 <stat.icon size={32} />
               </div>
-              <div className="text-4xl font-heading font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-2">
                 {stat.number}
               </div>
-              <p className="text-muted-foreground">{stat.label}</p>
+              <div className="text-sm text-muted-foreground leading-snug">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 max-w-3xl mx-auto text-center animate-fade-in">
-          <div className="bg-card rounded-2xl p-8 shadow-card border-2 border-secondary-light">
-            <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-              {t("stats.card.title")}
-            </h3>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              {t("stats.card.text")}
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto bg-secondary/5 rounded-3xl p-8 md:p-12 border border-secondary/10 shadow-card animate-fade-in">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 text-center">
+            {t("stats.card.title")}
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed text-center">
+            {t("stats.card.text")}
+          </p>
         </div>
       </div>
     </section>

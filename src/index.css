@@ -8,85 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Soft, supportive color palette for premature baby support */
-    --background: 40 30% 98%;
-    --foreground: 220 40% 20%;
-
+    /* Light Mode Colors - Ankstukai Style */
+    --background: 210 15% 96%;
+    --foreground: 250 45% 25%;
     --card: 0 0% 100%;
-    --card-foreground: 220 40% 20%;
-
+    --card-foreground: 250 45% 25%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 20%;
-
-    /* Soft navy primary */
-    --primary: 220 45% 35%;
+    --popover-foreground: 250 45% 25%;
+    --primary: 250 50% 40%; /* Deep purple/navy */
+    --primary-light: 180 65% 60%; /* Turquoise */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 45% 55%;
-    
-    /* Light aqua/turquoise accent */
-    --secondary: 190 60% 70%;
-    --secondary-foreground: 220 40% 20%;
-    --secondary-light: 190 60% 85%;
-
-    /* Warm peach for highlights */
-    --accent: 15 75% 78%;
-    --accent-foreground: 220 40% 20%;
-
-    --muted: 210 25% 90%;
-    --muted-foreground: 220 20% 45%;
-
-    --destructive: 0 70% 60%;
-    --destructive-foreground: 0 0% 100%;
-
+    --secondary: 180 65% 60%; /* Turquoise accent */
+    --secondary-light: 180 55% 75%;
+    --secondary-foreground: 250 45% 25%;
+    --muted: 210 20% 92%;
+    --muted-foreground: 250 25% 45%;
+    --accent: 25 75% 70%; /* Peachy */
+    --accent-foreground: 250 45% 25%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
     --border: 210 20% 88%;
     --input: 210 20% 88%;
-    --ring: 190 60% 70%;
-
-    --radius: 1rem;
-
-    /* Soft gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220, 45%, 35%), hsl(220, 45%, 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(190, 60%, 85%), hsl(220, 45%, 85%));
-    --gradient-soft: linear-gradient(180deg, hsl(40, 30%, 98%), hsl(190, 60%, 95%));
+    --ring: 180 65% 60%;
+    --radius: 1.5rem; /* More rounded like ankstukai */
     
-    /* Gentle shadows */
-    --shadow-soft: 0 4px 20px hsla(220, 40%, 30%, 0.08);
-    --shadow-card: 0 8px 30px hsla(220, 40%, 30%, 0.12);
-    
-    /* Smooth transitions */
+    /* Design System Enhancements - Ankstukai Style */
+    --gradient-hero: linear-gradient(135deg, hsl(250, 50%, 40%), hsl(260, 45%, 50%));
+    --gradient-soft: linear-gradient(180deg, hsl(210, 15%, 96%), hsl(0, 0%, 100%));
+    --gradient-primary: linear-gradient(135deg, hsl(250, 50%, 40%), hsl(260, 45%, 50%));
+    --shadow-soft: 0 4px 20px -2px hsl(250, 50%, 40% / 0.08);
+    --shadow-card: 0 8px 30px -5px hsl(250, 50%, 40% / 0.12);
+    --shadow-elegant: 0 15px 40px -10px hsl(250, 50%, 40% / 0.2);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 40% 10%;
-    --foreground: 40 30% 95%;
-
-    --card: 220 40% 12%;
-    --card-foreground: 40 30% 95%;
-
-    --popover: 220 40% 12%;
-    --popover-foreground: 40 30% 95%;
-
-    --primary: 190 60% 60%;
-    --primary-foreground: 220 40% 10%;
-    --primary-light: 190 60% 70%;
-
-    --secondary: 220 35% 25%;
-    --secondary-foreground: 40 30% 95%;
-    --secondary-light: 220 35% 35%;
-
-    --accent: 15 65% 65%;
-    --accent-foreground: 220 40% 10%;
-
-    --muted: 220 30% 20%;
-    --muted-foreground: 210 15% 65%;
-
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 30% 20%;
-    --input: 220 30% 20%;
-    --ring: 190 60% 60%;
+    --background: 250 45% 12%;
+    --foreground: 0 0% 95%;
+    --card: 250 40% 15%;
+    --card-foreground: 0 0% 95%;
+    --popover: 250 40% 15%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 180 65% 60%;
+    --primary-light: 180 55% 70%;
+    --primary-foreground: 250 45% 12%;
+    --secondary: 180 65% 60%;
+    --secondary-light: 180 55% 70%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 250 35% 20%;
+    --muted-foreground: 250 15% 60%;
+    --accent: 25 75% 70%;
+    --accent-foreground: 250 45% 12%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 250 35% 25%;
+    --input: 250 35% 25%;
+    --ring: 180 65% 60%;
   }
 }
 
@@ -119,6 +96,10 @@ All colors MUST be HSL.
   
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
   }
   
   .transition-smooth {

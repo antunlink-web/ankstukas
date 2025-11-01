@@ -43,17 +43,13 @@ const HowToHelp = () => {
   ];
 
   return (
-    <section id="help" className="relative py-20 bg-background overflow-hidden">
-      {/* Celestial decorations */}
-      <AngelDecoration className="top-20 right-[8%]" />
-      <div className="absolute top-40 left-[12%] text-secondary opacity-20 animate-float">
-        <Sparkles size={28} />
+    <section id="help" className="relative py-20 bg-gradient-soft overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-40 left-[12%] text-secondary/10 animate-float">
+        <Cloud size={60} />
       </div>
-      <div className="absolute bottom-32 right-[15%] text-accent opacity-25 animate-float" style={{ animationDelay: "1s" }}>
-        <Cloud size={44} />
-      </div>
-      <div className="absolute top-60 right-[20%] text-secondary-light opacity-15 animate-float" style={{ animationDelay: "2s" }}>
-        <Sparkles size={24} />
+      <div className="absolute bottom-32 right-[15%] text-secondary/10 animate-float" style={{ animationDelay: "1s" }}>
+        <Cloud size={50} />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -70,18 +66,18 @@ const HowToHelp = () => {
           {ways.map((way, index) => (
             <Card 
               key={index} 
-              className="border-2 hover-lift animate-scale-in shadow-soft"
+              className="border-0 hover-lift animate-scale-in shadow-card rounded-3xl bg-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${way.color} ${way.iconColor} mb-4`}>
-                  <way.icon size={28} />
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${way.color} ${way.iconColor} mb-4`}>
+                  <way.icon size={32} />
                 </div>
-                <CardTitle className="text-2xl font-heading">{way.title}</CardTitle>
-                <CardDescription className="text-base">{way.description}</CardDescription>
+                <CardTitle className="text-2xl font-heading text-primary">{way.title}</CardTitle>
+                <CardDescription className="text-base text-muted-foreground">{way.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full bg-primary hover:bg-primary-light transition-smooth">
+                <Button className="w-full bg-secondary hover:bg-secondary/90 text-primary font-semibold transition-smooth rounded-2xl shadow-soft">
                   {way.action}
                 </Button>
               </CardContent>
@@ -90,11 +86,11 @@ const HowToHelp = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in">
-          <div className="inline-block bg-secondary-light/30 rounded-2xl p-8 max-w-2xl">
-            <p className="text-lg text-foreground/80 mb-4">
-              <strong className="text-primary font-heading">{t("help.corporate.text")}</strong>
+          <div className="inline-block bg-primary/5 rounded-3xl p-8 md:p-12 max-w-2xl border border-primary/10">
+            <p className="text-lg text-foreground mb-6 leading-relaxed">
+              {t("help.corporate.text")}
             </p>
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 transition-smooth">
+            <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold transition-smooth rounded-2xl px-8 shadow-soft">
               {t("help.corporate.action")}
             </Button>
           </div>

@@ -20,36 +20,36 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-soft">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm shadow-soft">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center overflow-hidden">
-              <img src={logo} alt="Ankstukas logo" className="w-8 h-8 object-contain" />
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center overflow-hidden">
+              <img src={logo} alt="Ankstukas logo" className="w-9 h-9 object-contain" />
             </div>
             <span className="text-xl font-heading font-bold text-primary">{t("nav.siteName")}</span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-smooth font-medium"
+                className="text-foreground hover:text-secondary transition-smooth font-medium"
               >
                 {item.name}
               </a>
             ))}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth font-medium"
+              className="flex items-center gap-2 text-foreground hover:text-secondary transition-smooth font-medium"
               aria-label="Toggle language"
             >
               <Languages size={20} />
               <span className="uppercase">{language}</span>
             </button>
-            <Button className="bg-primary hover:bg-primary-light transition-smooth">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl px-6 shadow-soft">
               {t("nav.donate")}
             </Button>
           </div>
@@ -87,7 +87,7 @@ const Navigation = () => {
               <Languages size={20} />
               <span>{language === "en" ? "Lietuvių kalba" : "English"}</span>
             </button>
-            <Button className="w-full mt-4 bg-primary hover:bg-primary-light transition-smooth">
+            <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl">
               {t("nav.donate")}
             </Button>
           </div>

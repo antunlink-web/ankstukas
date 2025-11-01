@@ -9,66 +9,58 @@ const Hero = () => {
   const { t } = useLanguage();
   
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16">
-      {/* Background with gradient overlay */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero opacity-50" />
-        <img
-          src={heroImage}
-          alt="Supporting premature babies"
-          className="w-full h-full object-cover opacity-30"
-        />
+    <section id="home" className="relative min-h-[600px] md:min-h-[700px] bg-background overflow-hidden pt-24 pb-12">
+      {/* Decorative clouds in background */}
+      <div className="absolute top-20 left-[10%] text-secondary/10 animate-float">
+        <Cloud size={80} />
       </div>
-
-      {/* Sky gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary-light/20 via-transparent to-transparent" />
-
-      {/* Floating cloud decorations */}
-      <CloudDecoration position="top" />
+      <div className="absolute top-40 right-[15%] text-secondary/10 animate-float" style={{ animationDelay: "2s" }}>
+        <Cloud size={60} />
+      </div>
       
-      {/* Angel decorations */}
-      <AngelDecoration className="top-24 right-12 opacity-10" />
-      <AngelDecoration className="bottom-32 left-16 opacity-15" />
-
-      {/* Decorative cloud shapes */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-secondary-light rounded-full blur-3xl opacity-30 animate-float" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent rounded-full blur-3xl opacity-20 animate-float" style={{ animationDelay: "1s" }} />
-      
-      {/* Sparkle elements */}
-      <div className="absolute top-40 left-[15%] text-secondary opacity-30 animate-float">
-        <Sparkles size={24} />
-      </div>
-      <div className="absolute top-60 right-[25%] text-accent opacity-25 animate-float" style={{ animationDelay: "1.5s" }}>
-        <Sparkles size={20} />
-      </div>
-      <div className="absolute bottom-40 right-[15%] text-secondary-light opacity-30 animate-float" style={{ animationDelay: "2s" }}>
-        <Cloud size={32} />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center animate-fade-in-slow">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary mb-6 leading-tight">
-            {t("hero.title")}
-          </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 leading-relaxed">
-            {t("hero.subtitle")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary-light transition-smooth text-lg px-8 py-6 shadow-card">
-              <Heart className="mr-2 h-5 w-5" />
-              {t("hero.cta.support")}
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 transition-smooth text-lg px-8 py-6">
-              {t("hero.cta.learn")}
-            </Button>
+        {/* Main hero card with rounded corners - Ankstukai style */}
+        <div className="relative bg-gradient-hero rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-elegant animate-fade-in">
+          {/* Wavy bottom decoration */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-background">
+            <svg className="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M0,0 C300,60 900,60 1200,0 L1200,120 L0,120 Z" fill="hsl(var(--primary))" opacity="1"></path>
+            </svg>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center p-8 md:p-16 relative">
+            {/* Left side - Text content */}
+            <div className="text-left z-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-secondary mb-6 leading-tight">
+                {t("hero.title")}
+              </h1>
+              <div className="mb-8">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold transition-smooth shadow-card rounded-2xl px-8">
+                  {t("hero.cta.support")}
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right side - Image with rounded shape */}
+            <div className="relative z-10 animate-scale-in">
+              <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-elegant">
+                <img 
+                  src={heroImage} 
+                  alt="Premature baby care" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
+        
+        {/* Supporting text below hero */}
+        <div className="mt-12 max-w-3xl mx-auto text-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            {t("hero.subtitle")}
+          </p>
+        </div>
       </div>
-
-      {/* Curved bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-background" style={{ 
-        clipPath: "ellipse(100% 100% at 50% 100%)"
-      }} />
     </section>
   );
 };
