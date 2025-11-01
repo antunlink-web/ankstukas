@@ -17,7 +17,7 @@ const translations = {
     "nav.stories": "Stories",
     "nav.contact": "Contact",
     "nav.donate": "Donate",
-    "nav.siteName": "Little Fighters",
+    "nav.siteName": "Ankstukas",
     
     // Hero
     "hero.title": "Every Little Life Deserves Our Greatest Support",
@@ -78,7 +78,7 @@ const translations = {
     "nav.stories": "Istorijos",
     "nav.contact": "Kontaktai",
     "nav.donate": "Paremti",
-    "nav.siteName": "Maži Kovotojai",
+    "nav.siteName": "Ankstukas",
     
     // Hero
     "hero.title": "Kiekviena Maža Gyvybė Nusipelno Didžiausios Mūsų Paramos",
