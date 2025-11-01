@@ -19,7 +19,7 @@ const translations = {
     "nav.siteName": "Ankstukas",
     
     // Hero
-    "hero.title": "Every Little Life Deserves Our Greatest Support",
+    "hero.title": "Their Courage is our motivator",
     "hero.subtitle": "Sometimes the smallest fighters need the biggest help. Together, we provide hope, care, and support for premature babies and their families.",
     "hero.cta.support": "Support Our Fighters",
     "hero.cta.learn": "Learn More",
@@ -79,7 +79,7 @@ const translations = {
     "nav.siteName": "Ankstukas",
     
     // Hero
-    "hero.title": "Kiekviena Maža Gyvybė Nusipelno Didžiausios Mūsų Paramos",
+    "hero.title": "Jų Drąsa yra mūsų motyvatorius",
     "hero.subtitle": "Kartais patys mažiausi kovotojai reikalauja didžiausios pagalbos. Kartu mes teikiame viltį, rūpestį ir paramą anksčiau laiko gimusių kūdikių šeimoms.",
     "hero.cta.support": "Paremkite Mūsų Kovotojus",
     "hero.cta.learn": "Sužinoti Daugiau",
