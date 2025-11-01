@@ -49,7 +49,10 @@ const Navigation = () => {
               <Languages size={20} />
               <span className="uppercase">{language}</span>
             </button>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl px-6 shadow-soft">
+            <Button 
+              onClick={() => document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl px-6 shadow-soft"
+            >
               {t("nav.donate")}
             </Button>
           </div>
@@ -87,7 +90,13 @@ const Navigation = () => {
               <Languages size={20} />
               <span>{language === "en" ? "Lietuvių kalba" : "English"}</span>
             </button>
-            <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl">
+            <Button 
+              onClick={() => {
+                setIsOpen(false);
+                document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth rounded-2xl"
+            >
               {t("nav.donate")}
             </Button>
           </div>

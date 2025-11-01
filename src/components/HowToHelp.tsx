@@ -138,7 +138,7 @@ const HowToHelp = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="mt-20 max-w-2xl mx-auto animate-fade-in">
+        <div id="contact" className="mt-20 max-w-2xl mx-auto animate-fade-in">
           <div className="text-center mb-8">
             <h3 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-3">
               {t("contact.title")}
