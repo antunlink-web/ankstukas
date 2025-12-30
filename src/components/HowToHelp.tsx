@@ -58,7 +58,7 @@ const HowToHelp = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          access_key: "7a6fbce5-f71b-4f52-a58e-12bcbbd3a492",
           name: formData.name,
           email: formData.email,
           message: formData.message,
