@@ -94,6 +94,11 @@ const translations = {
     "news.item4.excerpt": "A new partnership will enhance care for premature babies with state-of-the-art equipment and specialized training for medical staff.",
     "news.item5.title": "World Prematurity Day Events",
     "news.item5.excerpt": "Join us for a series of events to raise awareness about premature birth and celebrate the strength of our tiniest fighters.",
+    "news.published": "Published",
+    "news.readMore": "Read more...",
+    "news.sidebar.donate": "Donate with PayPal",
+    "news.sidebar.prematurityDay": "World Prematurity Day",
+    "news.sidebar.prematurityDayDate": "November 17",
     
     // Footer
     "footer.about": "Supporting premature babies and their families with compassionate care, resources, and hope. Together, we make miracles happen every day.",
@@ -185,6 +190,11 @@ const translations = {
     "news.item4.excerpt": "Nauja partnerystė pagerins anksčiau laiko gimusių kūdikių priežiūrą su moderniausia įranga ir specializuotais mokymais medicinos personalui.",
     "news.item5.title": "Pasaulinės Neišnešiotumo Dienos Renginiai",
     "news.item5.excerpt": "Prisijunkite prie renginių serijos, skirtos didinti supratimą apie priešlaikinį gimimą ir švęsti mūsų mažiausių kovotojų stiprybę.",
+    "news.published": "Paskelbta",
+    "news.readMore": "Skaityti daugiau...",
+    "news.sidebar.donate": "Paaukoti per PayPal",
+    "news.sidebar.prematurityDay": "Pasaulinė Neišnešiotumo Diena",
+    "news.sidebar.prematurityDayDate": "Lapkričio 17 d.",
     
     // Footer
     "footer.about": "Palaikome anksčiau laiko gimusius kūdikius ir jų šeimas su užjaučiančia globa, resursais ir viltimi. Kartu mes kuriame stebuklus kiekvieną dieną.",
