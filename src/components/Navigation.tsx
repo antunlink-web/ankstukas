@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Languages } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
@@ -7,12 +8,15 @@ import logo from "@/assets/logo.png";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navItems = [
-    { name: t("nav.home"), href: "#home" },
-    { name: t("nav.about"), href: "#about" },
-    { name: t("nav.help"), href: "#help" },
-    { name: t("nav.contact"), href: "#contact" },
+    { name: t("nav.home"), href: isHomePage ? "#home" : "/", isLink: !isHomePage },
+    { name: t("nav.about"), href: isHomePage ? "#about" : "/#about", isLink: !isHomePage },
+    { name: t("nav.help"), href: isHomePage ? "#help" : "/#help", isLink: !isHomePage },
+    { name: t("nav.news"), href: "/news", isLink: true },
+    { name: t("nav.contact"), href: isHomePage ? "#contact" : "/#contact", isLink: !isHomePage },
   ];
 
   const toggleLanguage = () => {
@@ -33,13 +37,23 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-secondary transition-smooth font-medium"
-              >
-                {item.name}
-              </a>
+              item.isLink ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-foreground hover:text-secondary transition-smooth font-medium"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-secondary transition-smooth font-medium"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
             <button
               onClick={toggleLanguage}
@@ -71,14 +85,25 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-3 text-foreground hover:text-primary transition-smooth font-medium"
-              >
-                {item.name}
-              </a>
+              item.isLink ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 text-foreground hover:text-primary transition-smooth font-medium"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 text-foreground hover:text-primary transition-smooth font-medium"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
             <button
               onClick={() => {
