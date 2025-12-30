@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -87,117 +87,46 @@ const News = () => {
 
       <main className="py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Main Content */}
-            <div className="flex-1">
-              <div className="space-y-8">
-                {newsItems.map((item) => (
-                  <article 
-                    key={item.id} 
-                    className="bg-card rounded-2xl overflow-hidden shadow-card hover-lift flex flex-col md:flex-row"
+          <div className="space-y-8">
+            {newsItems.map((item) => (
+              <article 
+                key={item.id} 
+                className="bg-card rounded-2xl overflow-hidden shadow-card hover-lift flex flex-col md:flex-row"
+              >
+                {/* Image */}
+                <div className="md:w-64 lg:w-80 flex-shrink-0">
+                  <img 
+                    src={item.image} 
+                    alt={t(item.titleKey)}
+                    className="w-full h-48 md:h-full object-cover"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 p-6">
+                  <h2 className="text-xl lg:text-2xl font-heading font-bold text-secondary hover:text-secondary/80 transition-smooth mb-3">
+                    {t(item.titleKey)}
+                  </h2>
+                  
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <span className="font-medium">{t("news.published")}:</span>
+                    <span>{formatDate(item.date)}</span>
+                  </div>
+                  
+                  <p className="text-foreground/80 mb-4 line-clamp-3">
+                    {t(item.excerptKey)}
+                  </p>
+                  
+                  <Button 
+                    variant="default"
+                    className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-lg"
                   >
-                    {/* Image */}
-                    <div className="md:w-64 lg:w-80 flex-shrink-0">
-                      <img 
-                        src={item.image} 
-                        alt={t(item.titleKey)}
-                        className="w-full h-48 md:h-full object-cover"
-                      />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 p-6">
-                      <h2 className="text-xl lg:text-2xl font-heading font-bold text-secondary hover:text-secondary/80 transition-smooth mb-3">
-                        {t(item.titleKey)}
-                      </h2>
-                      
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                        <span className="font-medium">{t("news.published")}:</span>
-                        <span>{formatDate(item.date)}</span>
-                      </div>
-                      
-                      <p className="text-foreground/80 mb-4 line-clamp-3">
-                        {t(item.excerptKey)}
-                      </p>
-                      
-                      <Button 
-                        variant="default"
-                        className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-lg"
-                      >
-                        {t("news.readMore")}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <aside className="lg:w-80 space-y-6">
-              {/* Donate Box */}
-              <div className="bg-card rounded-2xl p-6 shadow-card">
-                <h3 className="text-xl font-heading font-bold text-secondary mb-4">
-                  {t("news.sidebar.donate")}
-                </h3>
-                <Button 
-                  asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl"
-                >
-                  <a 
-                    href="https://donate.stripe.com/dR6022eZJ29hdWMdQQ?locale=lt" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    {t("nav.donate")}
-                  </a>
-                </Button>
-              </div>
-
-              {/* Quick Links */}
-              <div className="bg-card rounded-2xl p-6 shadow-card">
-                <h3 className="text-xl font-heading font-bold text-secondary mb-4">
-                  {t("footer.quickLinks")}
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <Link 
-                      to="/#about" 
-                      className="text-foreground hover:text-secondary transition-smooth"
-                    >
-                      {t("nav.about")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      to="/#help" 
-                      className="text-foreground hover:text-secondary transition-smooth"
-                    >
-                      {t("nav.help")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      to="/#contact" 
-                      className="text-foreground hover:text-secondary transition-smooth"
-                    >
-                      {t("nav.contact")}
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* World Prematurity Day Banner */}
-              <div className="bg-secondary/10 rounded-2xl p-6 text-center">
-                <Calendar className="w-12 h-12 text-secondary mx-auto mb-3" />
-                <h3 className="text-lg font-heading font-bold text-foreground mb-2">
-                  {t("news.sidebar.prematurityDay")}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {t("news.sidebar.prematurityDayDate")}
-                </p>
-              </div>
-            </aside>
+                    {t("news.readMore")}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </main>
